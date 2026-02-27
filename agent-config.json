@@ -1,0 +1,24 @@
+{
+  "service": {
+    "name": "qltechin-app",
+    "type": "flutter",
+    "description": "Flutter web application for qltechin"
+  },
+  "build": {
+    "command": "flutter build web --release",
+    "timeout": 600
+  },
+  "test": {
+    "analyze": { "command": "flutter analyze", "timeout": 120 },
+    "unit": { "command": "flutter test", "timeout": 300 }
+  },
+  "codeStyle": {
+    "language": "dart",
+    "guidelines": [
+      "Follow Flutter best practices",
+      "Use Material 3 design components",
+      "Keep widgets small and composable",
+      "Write tests for business logic"
+    ]
+  }
+}
