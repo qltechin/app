@@ -1,38 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="QLTech - Enterprise-grade solutions for modern businesses. Transform your operations with cutting-edge technology platform.">
+  <meta name="keywords" content="enterprise, business solutions, technology platform, analytics, security, scalability">
+  <meta name="author" content="QLTech">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qltech.com/">
+  <meta property="og:title" content="QLTech - Enterprise Solutions Platform">
+  <meta property="og:description" content="Transform your business operations with our cutting-edge technology platform. Designed for scalability, security, and performance.">
+  <meta property="og:image" content="https://qltech.com/og-image.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://qltech.com/">
+  <meta property="twitter:title" content="QLTech - Enterprise Solutions Platform">
+  <meta property="twitter:description" content="Transform your business operations with our cutting-edge technology platform. Designed for scalability, security, and performance.">
+  <meta property="twitter:image" content="https://qltech.com/og-image.png">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="qltechin_app">
+  <meta name="apple-mobile-web-app-title" content="QLTech">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
+  
+  <!-- Preconnect to improve performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>qltechin_app</title>
+  <title>QLTech - Enterprise Solutions Platform</title>
   <link rel="manifest" href="manifest.json">
+  
+  <style>
+    /* Prevent FOUC (Flash of Unstyled Content) */
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    /* Loading animation */
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1A365D 0%, #2D3748 100%);
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #3182CE;
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
+  <!-- Loading screen -->
+  <div class="loading" id="loading">
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <script>
+    // Hide loading screen when Flutter is ready
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('loading').style.display = 'none';
+      }, 500);
+    });
+  </script>
+  
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
