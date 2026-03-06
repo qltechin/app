@@ -88,33 +88,57 @@ class _BeautifulBottomNavigationBarState
     extends State<BeautifulBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: widget.currentIndex,
-      onTap: widget.onDestinationSelected,
-      items: widget.items.asMap().entries.map((entry) {
-        final index = entry.key;
-        final item = entry.value;
-        
-        return BottomNavigationBarItem(
-          icon: Semantics(
-            label: item.label,
-            button: true,
-            child: ExcludeSemantics(
-              child: item.icon,
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            color: Theme.of(context).colorScheme.outlineVariant.withOpacity(0.2),
+            width: 1,
           ),
-          activeIcon: item.activeIcon != null
-              ? Semantics(
-                  label: item.label,
-                  button: true,
-                  child: ExcludeSemantics(
-                    child: item.activeIcon!,
-                  ),
-                )
-              : null,
-          label: item.label,
-        );
-      }).toList(),
+        ),
+      ),
+      child: BottomNavigationBar(
+        currentIndex: widget.currentIndex,
+        onTap: widget.onDestinationSelected,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).colorScheme.onSurfaceVariant,
+        selectedLabelStyle: TextStyle(
+          color: Theme.of(context).colorScheme.primary,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: TextStyle(
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
+        ),
+        elevation: 8,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        items: widget.items.asMap().entries.map((entry) {
+          final index = entry.key;
+          final item = entry.value;
+          
+          return BottomNavigationBarItem(
+            icon: Semantics(
+              label: item.label,
+              button: true,
+              child: ExcludeSemantics(
+                child: item.icon,
+              ),
+            ),
+            activeIcon: item.activeIcon != null
+                ? Semantics(
+                    label: item.label,
+                    button: true,
+                    child: ExcludeSemantics(
+                      child: item.activeIcon!,
+                    ),
+                  )
+                : null,
+            label: item.label,
+          );
+        }).toList(),
+      ),
     );
   }
 }

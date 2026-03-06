@@ -144,17 +144,6 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         },
         children: _screens,
       ),
-      // Top navigation bar (Material 3 style)
-      navigationBar: BeautifulNavigationBar(
-        currentIndex: _currentIndex,
-        onDestinationSelected: (index) {
-          setState(() {
-            _currentIndex = index;
-            _pageController.jumpToPage(index);
-          });
-        },
-        destinations: _navDestinations,
-      ),
       // Bottom navigation bar (alternative style)
       bottomNavigationBar: BeautifulBottomNavigationBar(
         currentIndex: _currentIndex,
@@ -313,7 +302,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              'Customize your app experience',
+              'Configure your app preferences',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
